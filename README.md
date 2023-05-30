@@ -1,11 +1,7 @@
 # Microarquitectura
 ### 👨🏻‍🏫 **Profesores**: David Alejandro Gonzalez Marquez y Pablo Dobrusin
-### 🤓 **Estudaintes**: Daffyd Jenkins, Valentino Cannestraci, Josefina Jahde y Luz Alba Posse
-### 🗃 **Qué hay en este repo?**:
-  - En *ejercicios* están las resoluciones de los ejercicios [📕 1], [📗 2]y [📘 3]. 
-  - En [💾 *codigo*] contiene las resoluciones de los ejercicios [📙 4] y [📓 5]
-  
- 📅 **Cuándo lo hicimos?**: Mayo 2023
+### 🤓 **Estudiantes**: Daffyd Jenkins, Valentino Cannestraci, Josefina Jahde y Luz Alba Posse
+📅 **Cuándo lo hicimos?**: Mayo 2023
 
 <br/><br/><br/><br/>
 
