@@ -100,6 +100,18 @@
     PC_load                         MM_enOut                       ; PC <- [Rx]
     reset_microOp
     
+01110: ; STRPOP |Rx|, M
+    ALU_enA                         RB_enOut RB_selectIndexOut=0   ; A <- Rx
+    ALU_enB                         ALU_enOut ALU_OP=cte0x01       ; B <- 1
+    RB_enIn RB_selectIndexIn=0      ALU_enOut ALU_OP=ADD           ; Rx <- Rx + 1
+    MM_enAddr                       RB_enOut RB_selectIndexOut=0   ; addr <- Rx
+    ALU_enA                         MM_enOut                       ; A <- [Rx] 
+    ALU_enB                         ALU_enOut ALU_OP=cte0x00       ; B <- 0
+    ALU_OP=ADD ALU_opW                                             ; opw??
+    MM_enAddr                       DE_enOutImm                    ; addr <- [Rx]
+    MM_load                         ALU_enOut                      ; [M] <- alu_out
+    reset_microOp
+
 01110: ; free
     reset_microOp
 
