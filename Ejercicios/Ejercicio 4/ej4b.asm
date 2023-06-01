@@ -15,10 +15,52 @@ halt:
 	JMP halt
 
 modarray:
-	; COMPLETAR
-	
-	RET|R7|
+	PUSH |R7|, R0
+	PUSH |R7|, R1
+	PUSH |R7|, R3
+	PUSH |R7|, R4
+	PUSH |R7|, R5
 
+	SET R3, 0x01
+	SET R5, 0x00
+	
+	loop:	
+		CALL |R7|, evaluar
+		ADD R0, R3
+		SUB R1, R3
+		CMP R1, R5
+		JZ ret
+		JMP loop
+	
+	evaluar:
+		LOAD R4, [R0]
+		PUSH |R7|, R4
+		SHL R4, 6
+		CMP R4, R5 
+		POP |R7|, R4
+		JZ div4
+		PUSH |R7|, R2
+		MOV R2, R4
+		SHL R4, 2
+		ADD R4, R2
+		SUB R4, R3
+		STR [R0], R4
+		POP |R7|, R2
+		RET |R7|
+
+	div4:
+		SHR R4, 2
+		SUB R4, R3
+		STR [R0], R4
+		RET |R7|
+
+	ret:
+		POP |R7|, R5
+		POP |R7|, R4
+		POP |R7|, R3
+		POP |R7|, R1
+		POP |R7|, R0
+		RET |R7|	
 
 p:
 DB 0x01

@@ -15,10 +15,42 @@ halt:
 	JMP halt
 
 cantpares:
-	; COMPLETAR
-	
-	RET|R7|
+	PUSH |R7|, R0
+	PUSH |R7|, R1
+	PUSH |R7|, R3
+	PUSH |R7|, R5
+	PUSH |R7|, R6
+	SET R4, 0x00
+	SET R3, 0x01
+	SET R5, 0x00
 
+	loop:	
+		CALL |R7|, shift
+		SUB R1, R3
+		CMP R1, R5
+		JZ ret
+		JMP loop
+
+	shift:
+		LOAD R6, [R0]
+		ADD R0, R3
+		SHL R6, 7
+		CMP R6, R5
+		JZ zero
+		RET |R7|
+
+	zero:
+		ADD R4, R3
+		RET |R7|
+
+	ret:
+		POP |R7|, R6
+		POP |R7|, R5
+		POP |R7|, R3
+		POP |R7|, R1
+		POP |R7|, R0
+		
+		RET|R7|
 
 p:
 DB 0x01

@@ -1,0 +1,34 @@
+**3. Ensamblar y ejecutar**
+
+- Escribir el siguiente archivo, compilarlo y cargarlo en la memoria de la máquina:
+
+a) Previamente a ejecutar el programa, describir con palabras el comportamiento esperado del mismo. No se debe explicar instrucción por instrucción, la idea es entender qué hace el programa y qué resultado genera.
+
+   El programa ejecuta un loop que llama a la subrutina "shift" y desplaza bits hacia la izquierda en el registro R2, guardando ese valor en memoria a partir de la posición apuntada por R3. Luego se restaura el valor de R2 antes de ser duplicado y se le resta 1. El loop continúa hasta que el valor de R1 sea igual al resultado de restar R0 a R2 (hasta que R2 valga 0), momento en el cual el programa finaliza. En el ejemplo, como R2 comienza valiendo 16, el loop se ejecuta 16 veces, guardando 16 valores en memoria, cada uno en una posición entre 0x30 y 0x40.
+
+b) Identificar la dirección de memoria de cada una de las etiquetas del programa
+
+   start: 0x00
+   loop: 0x0A
+   shift: 0x16
+   end: 0x14
+
+c) Ejecutar e identificar cuántos ciclos de clock son necesarios para que el programa llegue a la instrucción JMP halt.
+
+   Para que se llegue a ejecutar (para que el programa entre al loop infinito final por primera vez) se necesitan 1515 ciclos de clock. Para que el PC llegue a 0x14 (dirección de la etiqueta end) por primera vez, se necesitan 121 ciclos.
+
+d) ¿Cuántas microinstrucciones son necesarias para ejecutar la instrucción ADD? ¿Cuántas para la instrucción JZ? ¿Cuántas para la instrucción JMP?
+
+   ADD: Se necesitan 4 microinstrucciones.
+   JZ: Se necesitan 5 microinstrucciones.
+   JMP: Se necesitan 2 microinstrucciones.
+
+e) Describir detalladamente el funcionamiento de las instrucciones PUSH, POP, CALL y RET.
+
+   PUSH: La instrucción PUSH cumple la función de agregar su operando a la última posición del stack. En otras palabras, guarda el contenido del registro pasado por parámetro en el stack.
+
+   POP: La instrucción POP saca el último elemento del stack y guarda el contenido de ese elemento en el registro pasado por parámetro.
+
+   CALL: La instrucción CALL llama a subrutinas o funciones. Salta a la dirección especificada (modifica el PC) y guarda en el registro pasado por parámetro (normalmente el stack) el PC actual.
+
+   RET: La instrucción RET retorna de una subrutina y continúa con la ejecución del programa principal. Establece el PC en el valor pasado por parámetro (valor normalmente guardado en el stack).

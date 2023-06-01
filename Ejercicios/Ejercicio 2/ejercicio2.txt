@@ -1,0 +1,19 @@
+**2. Analizar**
+
+- Estudiar el funcionamiento de los circuitos indicados y responder las siguientes preguntas:
+
+  - a) PC (Contador de Programa): ¿Qué función cumple la señal inc?
+  
+    La función de la señal INC es incrementar el valor almacenado en el PC (Contador de Programa). Esta señal está directamente conectada a la unidad de control, lo que resulta en el aumento del valor actual del registro seleccionado. Este incremento permite realizar la búsqueda (fetch) de la instrucción siguiente en la secuencia de ejecución del programa.
+    
+  - b) ALU (Unidad Aritmético Lógica): ¿Qué función cumple la señal op_W?
+  
+    La señal op_W cumple la función de habilitar la escritura de los flip flops que almacenan el valor de los flags de la ALU.
+    
+  - c) Control Unit (Unidad de control): ¿Cómo se resuelven los saltos condicionales? Describir detalladamente el mecanismo, incluyendo la forma en que interactúan las señales jc microOp, jz microOp, jn microOp y jo microOp, con los flags.
+  
+    Los saltos condicionales se resuelven en la UC. Cuando en el programa se llama a las instrucciones, se evalúa con las compuertas AND si el flag a evaluar está encendido o no. Si el mismo lo está entonces el AND devuelve un 1 y se activa la microinstrucción que genera el salto.
+    
+  - d) microOrgaSmall (DataPath): ¿Para qué sirve la señal DE enOutImm? ¿Qué parte del circuito indica cuál índice del registro a leer y escribir?
+  
+    Lo que hace la señal DE_enOutImm es habilitar el componente de tres estados que habilita la salida del Decoder al BUS. Las señales que salen de la UC (RB_selectIndexIn y RB_selectIndexOut), indican qué registro leer y escribir.

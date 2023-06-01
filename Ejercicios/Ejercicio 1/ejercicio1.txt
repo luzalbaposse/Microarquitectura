@@ -1,0 +1,22 @@
+**1. Introducción**
+
+- Leer la datasheet y responder:
+  - a) ¿Cuál es el tamaño de la memoria en cantidad de bytes?
+  
+    Sabiendo que la memoria consta de 256 palabras y teniendo como dato que una palabra tiene un tamaño de 8 bits, el tamaño de memoria en cantidad de bytes es de 256.
+    
+  - b) ¿Cuántas instrucciones sin operandos se podrían agregar al formato de instrucción?
+  
+    Sabiendo que el opcode ocupa 5 bits hay 2^5 posibles operaciones indicables.
+    
+  - c) ¿Qué tamaño tiene el PC?
+  
+    El PC cuenta con un tamaño de 8 bits (1 byte).
+    
+  - d) ¿Dónde se encuentra y qué tamaño tiene el IR?
+  
+    El IR se encuentra entre el bus y el decoder. Al saber que entran 8 bits por high y 8 por low, determinamos que cuenta con tamaño de 2 bytes.
+    
+  - e) ¿Cuál es el tamaño de la memoria de microinstrucciones? ¿Cuál es su unidad direccionable?
+  
+    Esta memoria contiene palabras de 32 bits (unidad direccionable) y direcciones de 9 bits, lo cual implica una memoria de 2^9 posibles direcciones, es decir 512 bits. Si cada dirección es de 32 bits, la memoria es de 2 KB direccionable a 4 bytes.
