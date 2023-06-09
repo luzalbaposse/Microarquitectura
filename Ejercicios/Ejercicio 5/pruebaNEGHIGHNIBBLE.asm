@@ -1,0 +1,12 @@
+main:
+	SET R1, 0xF0	
+    SET R2, 0x0A
+    SET R3, 0xE1
+    SET R4, 0xA3
+    NEGHIGHNIBBLE R1
+    NEGHIGHNIBBLE R2
+    NEGHIGHNIBBLE R3
+    NEGHIGHNIBBLE R4
+
+halt:
+	JMP halt
